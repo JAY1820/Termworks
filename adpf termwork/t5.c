@@ -1,33 +1,26 @@
 #include <stdio.h>
-int orbit[100];
-void initialize()
-{
-int i;
-for ( i=0; i<100; i++ ){
-orbit[i] = -1;
+#include <math.h>
+int main(){
+    int M,N;
+    scanf("%d %d",&M,&N);
+    int arr[N];
+    for (int i=0; i<N; i++){
+        printf("%d\n",((M*(int)pow(2,i))%N));
+        arr[i] = (M*(int)pow(2,i))%N;
+    }
+    int i,j,cnt=0;
+    for(i=0; i<N; i++){
+        for(j=0; j<i; j++){
+            if (arr[i] == arr[j])
+            {
+                break;
+            }
+            
+        }
+        if(i==j){
+            cnt++;
+        }
+    }
+    printf("toal count is:%d",cnt);
+    return 0;
 }
-return;
-}
-
-int main()
-{
-int m;
-int n;
-int orbit_length=0;
-int current;
-
-printf("Enter the m and n value:");
-scanf("%d",&m);
-scanf("%d",&n);
-initialize();
-current=m;
-
-while(orbit[current]== -1){
-orbit[current]=1;
-orbit_length++;
-current = (current * 2) % n;
-}
-printf("%d\n",orbit_length);
-return 0;
-}
-

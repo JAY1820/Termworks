@@ -1,43 +1,39 @@
+// Anagram
 #include <stdio.h>
 #include <string.h>
-int Check_anagram(char str1[], char str2[]);
-
-int main(){
-    char str1[50];
-    char str2[50];
-
-    printf("Enter the First String : ");
-    scanf("%s",str1);
-
-    printf("Enter the Second String : ");
-    scanf(" %s",str2);
-
-    printf("%d ",Check_anagram(str1,str2));
+int main()
+{
+    char s[100], t[100];
+    int i, j, ls, lt, match = 0, cnt = 0;
+    printf("enter a string");
+    scanf("%s", s);
+    scanf("%s", t);
+    ls = strlen(s);
+    lt = strlen(t);
+    if (ls != lt)
+    {
+        printf("-1");
+    }
+    else
+    {
+        for (i = 0; i < ls; i++)
+        {
+            for (j = 0; j < lt; j++)
+            {
+                if (s[i] == t[j])
+                {
+                    t[j] = '\0';
+                    if (i == j)
+                        match++; // count the number of matching positions
+                    cnt++;       // count the number of characters matched
+                    break;
+                }
+            }
+        }
+        if (cnt == ls)
+            printf("%d", match);
+        else
+            printf("-1");
+    }
     return 0;
 }
-
-int Check_anagram(char str1[], char str2[])
- {
-    int s_freq[26] = {0};
-    int t_freq[26] = {0};
-    for (int i = 0; i < strlen(str1); i++) {
-        s_freq[str1[i] - 'a']++;
-    }
-    for (int i = 0; i < strlen(str2); i++) {
-        t_freq[str2[i] - 'a']++;
-    }
-    for (int i = 0; i < 26; i++) {
-        if (s_freq[i] != t_freq[i]) {
-            return -1;
-        }
-           
-    int count = 0;
-    for (int i = 0; i < strlen(str1); i++) {
-        if (str1[i] == str2[i]) {
-            count++;
-        }
-    }
-    return count;
-}
-}
-

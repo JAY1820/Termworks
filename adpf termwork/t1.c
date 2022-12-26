@@ -4,7 +4,7 @@ static int cnt=0;
 int main()
 {
 	int n,c;
-	printf("\nenter a number") 
+	printf("\nenter a number:"); 
 gt:	scanf("%d",&n);
 	if(n<=0 & n>32000) 
 	{

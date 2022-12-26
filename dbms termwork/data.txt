@@ -104,11 +104,36 @@ in (select bookid from book where subject = 'DBMS');
 9.Create procedure which pass book title as argument and in OUT paramerter it
 stores the count value of how may time given book is issued.
 
-
-
 ->delimiter $$
-create procedure pro_tot (btitle varchar(20), out total int(3))
+create procedure proc1 (btitle varchar(20), out total int(3))
 begin
-	select count(bookid) into total from issue where  bookid in (select bookid from book where title = btitle);
+	select count(bookid) into total from issue
+ where  bookid in (select bookid from book where title = btitle);
 end$$
 delimiter ;
+
+--> call proc1('sql',@toal);
+--> select @total;
+
+
+10. create a function called funct() pass the two arguments of date datatype 
+date1 and date2 and display the bookid which are issued between date1 and date2.
+
+-->
+delimiter $$
+create function funct(date1 date, date2 date)
+return varchar(100)
+deterministic
+begin
+     declare v varchar(100);
+     select group concat(bookid) into v from     //
+      issue where issuedate between date 1 and date2
+end $$
+delimiter;
+
+--> select funct('2022-05-12','2022-01--01');
+
+
+      
+
+

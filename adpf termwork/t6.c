@@ -1,44 +1,21 @@
-#include<stdio.h>
-int main()
-{
-    float N;
-    printf("\nEnter a integer no : ");
-    scanf("%f",&N);
-    int b=N;
-    if(b==N)
-    {
-        int sum_lower=0,sum_upper=0,a;
-        printf("\nEnter matrix values : \n");
-        for(int i=1;i<=N;i++)
-        {
-            for(int j=1;j<=N;j++)
-            {
-
-                scanf("%d",&a);
-                if(i<j)
-                {
-                    sum_upper+=a;
-                }
-                if(j<i)
-                {
-                    sum_lower+=a;
-                }
-            }
-            printf("\n");
-        }
-
-        if(sum_upper==0 || sum_lower==0)
-        {
-            printf("\n\nYES");
-        }
-
-        else{
-            printf("\n\nNO");
-        }
-
+#include <stdio.h>
+int main(){
+ int size, lowerTriangular = 1, upperTriangular = 1;
+ scanf("%d", &size);
+ for(int i=0; i < size; i++){
+  for(int j=0; j < size; j++){
+   int v;
+   scanf("%d", &v);
+   if(j < i && v != 0 && upperTriangular)
+    upperTriangular = 0;
+   else if(j > i && v != 0 && lowerTriangular)
+    lowerTriangular = 0;
     }
-    else{
-        printf("\nEnter integer number");
-    }
-    return 0;
+ }
+ if(lowerTriangular || upperTriangular){
+     printf("yes\n");
+ }else{
+     printf("no\n");
+}
+ return 0;
 }
