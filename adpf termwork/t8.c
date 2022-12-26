@@ -1,5 +1,6 @@
-#include <stdio.h>
+// PATTERN 2
 
+#include <stdio.h>
 int main()
 {
     int i, j, N;

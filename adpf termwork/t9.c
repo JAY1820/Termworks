@@ -1,3 +1,5 @@
+//PATTERN 3
+
 #include <stdio.h>
 int main() {
    int rows,space, i, j;
