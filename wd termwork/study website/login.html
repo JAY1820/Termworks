@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>OPEN TEXTBOOK LIBRARY</title>
+    <style>
+        body {
+            background: #edc0bf;
+            background: linear-gradient(90deg, #edc0bf 0, #c4caef 58%);
+        }
+
+        input {
+            height: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 100px;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 15px 15px;
+            font-weight: 200;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        td {
+            margin: 5px;
+            border-radius: 10px;
+            width: 150px;
+            text-align: center;
+            border: 1px solid black;
+            padding: 5px;
+
+        }
+
+        tr {
+            background-color: rgb(137, 10, 116);
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            padding: 5px;
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .form2 {
+            margin-top: 50px;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>OPEN TEXTBOOK LIBRARY</h1>
+    </header>
+    <nav>
+        <a class="menu-btn" href="home.html">Home</a>
+        <a class="menu-btn" href="studymaterial.html">Study Materials</a>
+        <a class="menu-btn" href="ebook.html">E-Books</a>
+        <a class="menu-btn" href="course.html">Courses</a>
+        <a class="menu-btn" href="login.html">Login/SignUp</a>
+    </nav>
+    <main>
+        <h2>STUDENT LOGIN</h2>
+        <center>
+            <form class="form2" action="course.html">
+                <table>
+                    <tr class="tr-1">
+                        <td>
+                            STUDENT ID:
+                        </td>
+                        <td>
+                            <input type="text" id="uname"><br>
+                        </td>
+                    </tr>
+                    <tr class="tr-1">
+                        <td>
+                            PASSWORD:
+                        </td>
+                        <td>
+                            <input type="password" id="pwd"><br>
+                        </td>
+                    </tr>
+                    <tr class="tr-2">
+                        <td colspan="2" align="center">
+                            <button type="submit" value="LogIn" onclick="return log();">LOGIN</button>
+                        </td>
+                    </tr>
+            </form>
+
+            </table>
+            <H2>FOR SING UP !</H2>
+            <h2>
+                <a href="register.html">Register Here...</a>
+            </h2>
+        </center>
+
+        <script>
+            function log() {
+                var uname = document.getElementById("uname").value;
+                var pwd = document.getElementById("pwd").value;
+                if (uname == "Admin" && pwd == "password") {
+                    alert("Login Successfull!!");
+                    return true;
+                }
+                else {
+                    alert("Please Enter Valid Student Id And password!!");
+                    return false;
+                }
+
+            }
+        </script>
+    </main>
+    <br>
+    <footer>
+        <a href="#">FAQ</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Refund Policy</a>
+        <a href="#">&copy; 2022 | OPEN TEXTBOOK LIBRARY</a>
+    </footer>
+</body>
+
+</html>
