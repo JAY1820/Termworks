@@ -1,3 +1,5 @@
+// find a longest substring of a
+
 #include<stdio.h>
 #include<string.h>
 int main()
@@ -16,8 +18,8 @@ int main()
         }
         if(str[i]!=str[i+1])
         {
-            cnt[k]=c;
             c=1;
+            cnt[k]=c; 
         }
         k++;
     }

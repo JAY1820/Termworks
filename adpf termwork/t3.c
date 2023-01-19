@@ -24,7 +24,7 @@ int main()
                 {
                     t[j] = '\0';
                     if (i == j)
-                        match++; // count the number of matching positions
+                     match++; // count the number of matching positions
                     cnt++;       // count the number of characters matched
                     break;
                 }

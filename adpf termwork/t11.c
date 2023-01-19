@@ -1,20 +1,43 @@
-#include<stdio.h>    
-int main()    
-{    
- int n1=0,n2=1,n3,i,number;    
- printf("Enter the number of elements:");    
- scanf("%d",&number);   
-  
- //printing 0 and 1    
- printf("\n%d %d",n1,n2);
- //loop starts from 2 because 0 and 1 are already printed    
+// recursion fibonaccii
 
- for(i=2;i<number;++i)
- {    
-  n3=n1+n2;    
-  printf(" %d",n3);    
-  n1=n2;    
-  n2=n3;    
- }  
+#include<stdio.h>
+// int fib(int n)
+// {
+//     if(n<=2)
+//         return 1;
+//     else
+//         return fib(n-1)+fib(n-2);
+// }
+
+// int main()
+// {
+//     int n;
+//     printf("Enter N:");
+//     scanf("%d",&n);
+//     printf("Fibonacci Series:");
+//     for(int i=1; i<=n; i++)
+//         printf(" %d ",fib(i));
+//     return 0;
+// }
+
+
+void fib(int n){    
+    static int n1=1,n2=1,n3;    
+    if(n>0){    
+         n3 = n1 + n2;    
+         n1 = n2;    
+         n2 = n3;    
+         printf("%d ",n3);    
+         fib(n-2);    
+    }    
+}    
+
+
+int main(){    
+    int n;    
+    scanf("%d",&n); 
+    printf("Fibonacci Series:");
+    printf("%d %d ",1,1);    
+    fib(n-2);
   return 0;  
- }  
+ }    
