@@ -1,0 +1,149 @@
+CREATE TABLE Students ( 
+      studid int,
+      sname  varchar(255),
+      PRIMARY KEY (studid)
+);
+
+CREATE TABLE Book(
+      bookid int,
+      title varchar(255) NOT NULL UNIQUE,
+      subject varchar(255)         
+);
+
+
+CREATE TABLE issue(
+  studid int,
+  bookid int,
+  issuedate date,
+  FOREIGN KEY (studid) REFERENCES Students(studid) 
+  FOREIGN KEY (bookid) REFERENCES book(bookid)    
+);
+
+
+INSERT INTO 
+	Students(studid,sname)
+VALUES
+	('11','jay'),
+	('12','karan'),
+      ('13','rajni'),
+      ('14','savan'),
+      ('15','deep'),
+      ('16','sanmay'),
+      ('17','sagar'),
+      ('18','sanmay'),
+      ('19','bharat'),
+      ('20','sammer')
+;
+
+INSERT INTO 
+   book(bookid,title,subject)
+VALUES
+	('101','anscii','c'),
+       ('102','historyofcomputer','computer'),
+       ('103','oxford_clanguage','c'),
+      ('104','dbms_basic','dbms'),
+       ('105','dbms_advance','dbms'),
+       ('106','sql','dbms'),
+       ('107','networkbasic','networking'),
+       ('108','computerarchitecture','computer')
+        ('109','excel','computer'),
+        ('111','linuxbasic','linux'),
+        ('112','electromagnectic','physics'),
+        ('201','fluidmagnectic','physics')
+;
+
+
+INSERT INTO 
+      issue(studid,bookid,issuedate)
+VALUES
+     ('11','101','2022-12-02'),
+	('12','102','2022-12-02'),
+      ('13','103','2022-12-02'),
+      ('14','104','2022-12-02'),
+   	('15','105','2022-12-02'),
+	('16','106','2022-12-05'),
+	('17','107','2022-12-05'),
+      ('18','108','2022-12-06'),
+      ('19','109','2022-12-06'),
+      ('20','201','2022-12-06'),
+ 	('11','201','2022-12-10'),
+  	('12','201','2022-12-10'),
+  	('13','101','2022-12-11');
+
+
+
+
+
+query==
+1. Display all the Book details of subject computer.
+->select * from book where subject = 'computer';
+
+2. Display all the studid who has issue book after 12-12-2018
+->select studid from issue where issuedate >'2018-12-12';
+
+3. Display all the bookname who has issued by student Sameer.  
+->select title from book where bookid 
+in(select bookid from issue
+ where studid=(select studid from students where sname='sameer'));
+
+4. Display sname who has isuue bookid=101 
+->select sname from students where studid in (select studid from issue where bookid=101);
+
+5. Display the all the student id who issued the books of subject networking
+-> select studid from issue where bookid in (select bookid from book where subject = 'Networking');
+
+6. Display all the student id who issued the books of subject DBMS. 
+->select studid from issue where bookid in (select bookid from book where subject = 'DBMS'); 
+
+7. Count number of students who has issue the book with subject DBMS. 
+->select count(distinct studid) from issue where bookid 
+in (select bookid from book where subject = 'DBMS'); 
+
+8. Update the subject of bookid 201 to physics. 
+->update book set subject = 'physic' where bookid = 201;
+
+9.Create procedure which pass book title as argument and in OUT paramerter it
+stores the count value of how may time given book is issued.
+
+delimiter //
+create procedure proc1(in t1 varchar(30),OUT cnt int(3))
+begin
+    select count(bookid) into total from 
+issue where bookid in (select bookid from book where title=t1);
+end //
+delimiter ;
+
+
+--> call proc1('sql',@total);
+--> select @total;
+
+
+10. create a function called funct() pass the two arguments of date datatype 
+date1 and date2 and display the bookid which are issued between date1 and date2.
+
+-->
+delimiter //
+create function funct(fdate date,tdate date)
+returns varchar(30)
+    deterministic
+begin
+    declare t1 varchar(30);
+    select group_concat(bookid) into t1 
+from issue where issuedate between fdate and tdate;
+    return t1;
+end //
+delimiter ;
+
+
+select funct('2022-12-21','2022-02-21');
+
+
+
+
+
+
+
+
+      
+
+

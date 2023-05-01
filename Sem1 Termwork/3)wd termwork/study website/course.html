@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>OPEN TEXTBOOK LIBRARY</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        .column {
+            float: left;
+            width: 33.3%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: 8px;
+        }
+
+        .about-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #474e5d;
+            color: white;
+        }
+
+        .container {
+            padding: 0 16px;
+        }
+
+        .container::after,
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .title {
+            color: grey;
+        }
+
+        .button1 {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: orangered;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .button1:hover {
+            background-color: white;
+        }
+
+        .image-course {
+            height: 300px;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+        }
+    </style>
+
+    <script>
+        function move() {
+            alert(
+                "BUY A COURSE FROM OTHER SITE"
+            )
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>OPEN TEXTBOOK LIBRARY</h1>
+    </header>
+    <nav>
+        <a class="menu-btn" href="home.html">Home</a>
+        <a class="menu-btn" href="studymaterial.html">Study Materials</a>
+        <a class="menu-btn" href="ebook.html">E-Books</a>
+        <a class="menu-btn" href="course.html">Courses </a>
+        <a class="menu-btn" href="login.html">Login/SignUp</a>
+    </nav>
+    <main>
+        <h2 class="text-heading" style="text-align: center;">PAID COURSES FOR STUDY</h2>
+
+        <div class="about-section">
+            <h1>GUIDENCE ABOUT COURSES</h1>
+            <p>ALL ARE OFFICAL AND GOOD COURSE FOR STUDENTS . IT HELP THEM TO IMPROVE
+                TECHNICAL SKILLS AND ALSO IN GETTION JOB OPPORTUNITY</p>
+        </div>
+
+        <h2 id="mca-link" style="text-align:center">MCA COURSES</h2>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img class="image-course" src="./img/course_mca_1.jpg" alt="course">
+                    <div class="container">
+                        <h2>UDEMY</h2>
+                        <p class="title">WEB DEVELOPEMENT</p>
+                        <p>It INCLUDE HTML,CSS , JavaScript , REACT JS AND MONGO DB</p>
+                        <p><button class="button1" onclick="return  move();"> <a
+                                    href="https://www.udemy.com/course/the-complete-web-development-bootcamp/"
+                                    onclick="return buy">
+                                    BUY NOW</a></button></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img class="image-course" src="./img/course_mca_2.jpeg" alt="course">
+                    <div class="container">
+                        <h2>UDEMY</h2>
+                        <p class="title">WEB PROJECT</p>
+                        <p>IT INCLUDE HTML,CSS , JavaScript AND 15 WEB PROJRCT</p>
+                        <p><button class="button1" onclick="return  move();"> <a
+                                    href="https://www.udemy.com/course/complete-web-development-course/">
+                                    BUY NOW</a></button></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img class="image-course" src="./img/course_mca_3.jpeg" alt="course">
+                    <div class="container">
+                        <h2>UDEMY</h2>
+                        <p class="title">LEARN PYTHON</p>
+                        <p>IT CONTAIN 100+PYTHON CLASS AND INCLUDE BASIC TO ADVANCE PYTHON </p>
+                        <p><button class="button1" onclick="return  move();"> <a href="">BUY NOW</a></button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h2 id="mba-link" style="text-align:center">MBA COURSES</h2>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img class="image-course" src="./img/course_mba_1.png" alt="course">
+
+                    <div class="container">
+                        <h2>COURSERA</h2>
+                        <p class="title">FINANCE MARKET</p>
+                        <p>THIS COURSE IS APART OF BUSSINESS FOUNDATION SPECALIZATION</p>
+                        <p><button class="button1" onclick="return  move();"> <a
+                                    href="https://www.coursera.org/learn/wharton-finance">BUY
+                                    NOW</a></button></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img class="image-course" src="./img/course_mba_2.jpeg" alt="course">
+
+                    <div class="container">
+                        <h2>UDEMY</h2>
+                        <p class="title">COMMUNICATION SKILLS</p>
+                        <p>YOU WILL BE FLUENT ENGLISH SPEAKER IN PUBLIC AFTER COMPLITION OF THIS COURSE</p>
+                        <p><button class="button1" onclick="return  move();"> <a
+                                    href="https://www.findcourses.com/training-supplier/vital-learning/essential-skills-of-communicating-597271">
+                                    BUY NOW</a></button></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img class="image-course" src="./img/course_mba_3.jpg" alt="course">
+                    <div class="container">
+                        <h2>COURSERA</h2>
+                        <p class="title">BUSSINESS STATISTICS </p>
+                        <p>LERAN WHICH METHOD OF STATISTICS IS USED TO SOLVE BUSSINESS ISSUE</p>
+                        <p><button class="button1" onclick="return  move();">
+                                <a href="https://in.coursera.org/learn/stanford-statistics">BUY
+                                    NOW</a></button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <br>
+    <footer>
+        <a href="#">FAQ</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Refund Policy</a>
+        <a href="#">&copy; 2022 | OPEN TEXTBOOK LIBRARY</a>
+    </footer>
+</body>
+
+</html>
