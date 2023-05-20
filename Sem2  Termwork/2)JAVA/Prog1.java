@@ -6,6 +6,7 @@ class Prog1
 	{
 		double watt,hours,totupd;
 		double kwatt,totbpd,finalbill;
+		
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Please enter following details:");
 		System.out.println("Enter total Wattage of the device");
