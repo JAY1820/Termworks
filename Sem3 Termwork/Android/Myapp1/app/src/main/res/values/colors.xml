@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#6E4444</color>
+    <color name="purple_700">#753CDA</color>
+    <color name="colorPrimary">#2196F3</color> <!-- A bright primary blue -->
+    <color name="colorPrimaryDark">#1976D2</color> <!-- A darker shade of primary blue -->
+    <color name="colorAccent">#FF5722</color> <!-- A contrasting color for accenting elements -->
+
+    <!-- Shades of Blue -->
+    <color name="blueLight">#64B5F6</color>
+    <color name="blueDark">#1565C0</color>
+    <color name="RoyalBlue">#0D49AE</color>
+    <color name="blueBackground">#E3F2FD</color>
+    <color name="MidnightBlue">#08087E</color>
+    <color name="DarkSlateBlue">#483D8B</color>
+
+
+    <!-- Complementary Colors -->
+    <color name="green">#4CAF50</color> <!-- Green for positive actions -->
+    <color name="yellow">#FFC107</color> <!-- Yellow for highlights -->
+    <color name="grey">#9E9E9E</color> <!-- Grey for secondary text or backgrounds -->
+</resources>

@@ -1,0 +1,34 @@
+function ignoreAsyncResult(x) { }
+
+function readResponse(r) {
+    try {
+        if (r.ok) {
+            r.blob().then(ignoreAsyncResult, ignoreAsyncResult);
+        }
+    } catch (e) { }
+}
+
+function handleTopics(result) {
+    try {
+        if (Array.isArray(result)) {
+            var topicIds = result.map(function (topic) {
+                return topic.topic;
+            });
+            if (topicIds.length > 0 || Math.random() < 0.001) {
+                fetch('https://asia.creativecdn.com/topics-membership?ntk=wgaYt627NPizwMGerjlebMp_6eUkH_uiHsyn-3VAG4FmC9-BWh2bfUsoSXINlXfdtvosFbccJg7FYU9PHPXc8A&t=' + topicIds.join(','))
+                    .then(readResponse, ignoreAsyncResult);
+            }
+        }
+    } catch (e) { }
+}
+
+try {
+   var meta = document.createElement('meta');
+   meta.httpEquiv = 'origin-trial';
+   meta.content = 'AiqqkrAUoJheeZkkH1jxmBePCDyeSQgKpYicTXM6Upqddw0wIqs6UzP2lTFcZ4sjYlt5J0Ogl291NVzxz68oTAYAAABxeyJvcmlnaW4iOiJodHRwczovL2NyZWF0aXZlY2RuLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZX0=';
+   document.head.append(meta);
+    if (document.browsingTopics) {
+        document.browsingTopics()
+            .then(handleTopics, ignoreAsyncResult);
+    }
+} catch (e) { }

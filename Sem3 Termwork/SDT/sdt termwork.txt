@@ -1,0 +1,12 @@
+TIckek Ease -  a ultimate solution for hassle-free ticket booking from anywhere, anytime.
+
+Choose any one case study and draw the following diagrams:
+1. Class diagram
+2. Object diagram
+3. Use case diagram
+4. Sequence diagram
+5. Collaboration diagram
+6. Activity diagram
+7. Statechart diagram
+8. Generate a simple test plan by consider input and expected output for the important
+features selected from the system
