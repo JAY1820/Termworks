@@ -1,10 +1,10 @@
-D:\Termworks\Sem3 Termwork\Extra
-D:\Termworks\Sem3 Termwork/Extra/awareness-of-waste-recycling-master/awareness-of-waste-recycling-master/classifyWaste.h5
+.gitignore
+.gitattributes
 
-# Ignore large files
-*.h5
-*.keras
+# # Ignore large files
+# *.h5
+# *.keras
 
-# Ignore specific directories containing large files
-Sem3 Termwork/Extra/
-Sem3 Termwork/Python/waste_classifier/models/
+# # Ignore specific directories containing large files
+# Sem3 Termwork/Extra/
+# Sem3 Termwork/Python/waste_classifier/models/
