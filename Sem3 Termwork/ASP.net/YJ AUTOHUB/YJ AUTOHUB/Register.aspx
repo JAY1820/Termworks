@@ -5,13 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Register page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <style>
+       
         .jumbotron {
-            background-color: #eeeeee;
+            background: linear-gradient(to right, #000000, #434343);
             color: #fff;
             padding: 100px 25px;
         }
@@ -97,7 +98,7 @@
                     </a>
                 </div>
 
-                <!-- navbar-collapse collapse -->
+                 <!-- Navbar Links -->
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Home LinkButton -->
@@ -108,18 +109,9 @@
                         <li>
                             <asp:LinkButton ID="lnkAbout" runat="server" Text="About" PostBackUrl="~/About.aspx"></asp:LinkButton>
                         </li>
-                        <!-- Products Dropdown -->
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="Products.aspx">All Products</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="Cars.aspx">Cars</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="Bikes.aspx">Bikes</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="Scooty.aspx">Scooty</a></li>
-                            </ul>
+                        <!-- Products LinkButton -->
+                        <li>
+                            <asp:LinkButton ID="lnkProducts" runat="server" Text="Products" PostBackUrl="~/Products.aspx"></asp:LinkButton>
                         </li>
                         <!-- Cart LinkButton -->
                         <li>
@@ -162,12 +154,12 @@
                 <asp:TextBox ID="txtPincode" runat="server" placeholder="Pincode" CssClass="form-control"></asp:TextBox>
                 <br /><br />
 
-                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password" CssClass="form-control" autocomplete="new-password"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" 
                     InitialValue="" ErrorMessage="Password is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                 <br /><br />
 
-                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" placeholder="Confirm Password" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" placeholder="Confirm Password" CssClass="form-control" autocomplete="new-password"></asp:TextBox>
                 <asp:CompareValidator ID="cvPasswordMatch" runat="server" ControlToValidate="txtConfirmPassword"
                     ControlToCompare="txtPassword" ErrorMessage="Passwords do not match" ForeColor="Red" Display="Dynamic"></asp:CompareValidator>
                 <br /><br />

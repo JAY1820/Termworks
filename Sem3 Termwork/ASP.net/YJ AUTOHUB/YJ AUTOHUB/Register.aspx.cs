@@ -15,59 +15,45 @@ namespace YJ_AUTOHUB
         {
 
         }
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Signin.aspx");
         }
-
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            // Define the connection string
-            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=YjAutohub;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iamja\OneDrive\Documents\Autohub.mdf;Integrated Security=True;Connect Timeout=30";
+            string insertQuery = "INSERT INTO [User] (Name, Email, Mobile, City, Pincode, Password, Gender) VALUES (@Name, @Email, @Mobile, @City, @Pincode, @Password, 'Male')";
 
-            // Define the INSERT query
-            string insertQuery = "INSERT INTO Users (Name, Email, Mobile, City, Pincode, Password) VALUES (@Name, @Email, @Mobile, @City, @Pincode, @Password)";
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    // Open the database connection
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                    con.Open();
+                    using (SqlCommand command = new SqlCommand(insertQuery, con))
                     {
-                        // Set the parameter values
+                        // Use parameterized queries to prevent SQL injection.
                         command.Parameters.AddWithValue("@Name", txtName.Text);
                         command.Parameters.AddWithValue("@Email", txtEmail.Text);
                         command.Parameters.AddWithValue("@Mobile", txtMobile.Text);
                         command.Parameters.AddWithValue("@City", txtCity.Text);
                         command.Parameters.AddWithValue("@Pincode", txtPincode.Text);
-                        command.Parameters.AddWithValue("@Password", txtPassword.Text); // Remember to hash and salt the password for security.
+                        command.Parameters.AddWithValue("@Password", txtPassword.Text);
 
+                        command.ExecuteNonQuery();
+                        // Use ClientScript to display an alert message.
+                        ClientScript.RegisterStartupScript(this.GetType(), "RegistrationComplete", "alert('Record inserted successfully!');", true);
 
-
-                        // Execute the INSERT query
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            // Registration successful, you can redirect the user to a success page or perform other actions.
-                            Response.Redirect("~/Signin.aspx");
-                        }
-                        else
-                        {
-                            // Registration failed, handle the error (e.g., display an error message).
-                        }
+                        Response.Redirect("~/SignIn.aspx");
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // Handle any exceptions (e.g., display an error message or log the error).
+                // Use ClientScript to display an error message.
+                ClientScript.RegisterStartupScript(this.GetType(), "RegistrationError", "alert('" + ex.Message + "');", true);
             }
-
         }
+
 
     }
 }

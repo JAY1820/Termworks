@@ -1,17 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="YJ_AUTOHUB.About" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Signin.aspx.cs" Inherits="YJ_AUTOHUB.Signin" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Login page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <style>
+        
         .jumbotron {
-            background-color: #eeeeee;
+            background: linear-gradient(to right, #000000, #434343);
             color: #fff;
             padding: 100px 25px;
         }
@@ -104,7 +105,7 @@
                     </a>
                 </div>
 
-                <!-- navbar-collapse collapse -->
+                 <!-- Navbar Links -->
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Home LinkButton -->
@@ -115,18 +116,9 @@
                         <li>
                             <asp:LinkButton ID="lnkAbout" runat="server" Text="About" PostBackUrl="~/About.aspx"></asp:LinkButton>
                         </li>
-                        <!-- Products Dropdown -->
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="Products.aspx">All Products</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="Cars.aspx">Cars</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="Bikes.aspx">Bikes</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="Scooty.aspx">Scooty</a></li>
-                            </ul>
+                        <!-- Products LinkButton -->
+                        <li>
+                            <asp:LinkButton ID="lnkProducts" runat="server" Text="Products" PostBackUrl="~/Products.aspx"></asp:LinkButton>
                         </li>
                         <!-- Cart LinkButton -->
                         <li>
@@ -140,27 +132,20 @@
                 </div>
             </div>
         </nav>
-        <!-- ... Your header navigation bar code ... -->
+       
 
         <!-- Container (login Section) -->
         <div class="container-fluid">
 
               <div class="container login-container">
             <h2>Login</h2>
-            <asp:TextBox ID="txtLoginEmail" runat="server" placeholder="Email" CssClass="form-control"></asp:TextBox>
-            
-
-            <asp:TextBox ID="txtLoginPassword" runat="server" TextMode="Password" placeholder="Password" CssClass="form-control"></asp:TextBox>
-           
-
-            <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn btn-primary" /> <br /><br />
+            <asp:TextBox ID="txtLoginEmail" runat="server" placeholder="Email" CssClass="form-control"></asp:TextBox>        
+             <asp:TextBox ID="txtLoginPassword" runat="server" TextMode="Password" placeholder="Password" CssClass="form-control"></asp:TextBox>
+             <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn btn-primary" ClientIDMode="AutoID" /> <br /><br />
             <asp:Button ID="btnRegister" runat="server" Text="Register" PostBackUrl="~/Register.aspx" CssClass="btn btn-primary" OnClick="btnRegister_Click" />
             
         <!-- Container End -->
-
-        </div>
-
-      
+         </div>  
         <!-- Footer Content -->
         <footer style="background-color: #333; color: white;">
             <div class="container">
@@ -175,7 +160,9 @@
                             <li><a href="Default.aspx">Home</a></li>
                             <li><a href="About.aspx">About</a></li>
                             <li><a href="#">Contact</a></li>
-                            <li><a href="Products.aspx">Products</a></li>
+                            <li><a href="Products.aspx">Products</a>
+
+                            </li>
                         </ul>
                     </div>
                     <div class="col-md-4">
@@ -193,6 +180,8 @@
         </footer>
         <!-- ... footer content code  end... -->
     </div>
+
+        </div>
     </form>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>

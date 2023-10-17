@@ -24,7 +24,7 @@ namespace YJ_AUTOHUB
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Register.aspx");
+            
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

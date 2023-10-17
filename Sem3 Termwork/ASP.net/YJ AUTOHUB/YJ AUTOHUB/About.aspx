@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>About page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <style>
         .jumbotron {
-            background-color: #eeeeee;
+            background: linear-gradient(to right, #000000, #434343);
             color: #fff;
             padding: 100px 25px;
         }
@@ -46,12 +46,10 @@
     <form id="form1" runat="server">
     <div>
         
-        <%-- Header start --%>
         <div class="jumbotron text-center" style="margin-bottom: 0">
             <h1>YJ AUTOHUB</h1>
             <p>Your Ultimate Destination for Cars, Bikes, and Scooters</p>
         </div>
-         <%-- Header end --%>
 
         <!-- Header Navigation Bar -->
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -63,14 +61,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <!-- navbar-brand -->
                     <a class="navbar-brand" href="Default.aspx">
                         <img src="icons/safeIcons.png" alt="#" height="30" />
                         YJ Auto Hub
                     </a>
                 </div>
 
-                <!-- navbar-collapse collapse -->
+                <!-- Navbar Links -->
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Home LinkButton -->
@@ -81,18 +78,9 @@
                         <li>
                             <asp:LinkButton ID="lnkAbout" runat="server" Text="About" PostBackUrl="~/About.aspx"></asp:LinkButton>
                         </li>
-                        <!-- Products Dropdown -->
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="Products.aspx">All Products</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="Cars.aspx">Cars</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="Bikes.aspx">Bikes</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="Scooty.aspx">Scooty</a></li>
-                            </ul>
+                        <!-- Products LinkButton -->
+                        <li>
+                            <asp:LinkButton ID="lnkProducts" runat="server" Text="Products" PostBackUrl="~/Products.aspx"></asp:LinkButton>
                         </li>
                         <!-- Cart LinkButton -->
                         <li>
@@ -100,14 +88,12 @@
                         </li>
                         <!-- Sign In LinkButton -->
                         <li>
-
                             <asp:LinkButton ID="lnkSignIn" runat="server" Text="Sign In" PostBackUrl="~/signin.aspx"></asp:LinkButton>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- ... Your header navigation bar code ... -->
 
         <!-- Container (About Section) -->
         <div class="container-fluid">
@@ -123,6 +109,7 @@
             </div>
         </div>
 
+      
         <!-- Services Section -->
         <div class="container-fluid text-center">
             <h2>Services</h2>
@@ -197,7 +184,6 @@
                 <p class="text-center">&copy;<%= DateTime.Now.Year %> YJ AutoHub.in. All rights reserved.</p>
             </div>
         </footer>
-        <!-- ... footer content code  end... -->
     </div>
     </form>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

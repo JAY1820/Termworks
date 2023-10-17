@@ -17,8 +17,9 @@
     
     <!-- Custom CSS Styles -->
     <style>
+        
         .jumbotron {
-            background-color: #eeeeee;
+            background: linear-gradient(to right, #000000, #434343);
             color: #fff;
             padding: 100px 25px;
         }
@@ -47,6 +48,38 @@
                 margin: 25px 0;
             }
         }
+
+            .product-item {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .product-item img {
+        max-width: 100%;
+    }
+
+    .probrand {
+        color: #f4511e;
+        font-size: 16px;
+    }
+
+    .proName {
+        font-size: 18px;
+    }
+
+    .proPrice {
+        font-size: 16px;
+    }
+
+    .proOgPrice {
+        text-decoration: line-through;
+    }
+
+    .proPriceDiscount {
+        color: #f4511e;
+    }
+
     </style>
 </head>
 <body>
@@ -76,7 +109,7 @@
                     </a>
                 </div>
 
-                <!-- navbar-collapse collapse -->
+                 <!-- Navbar Links -->
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Home LinkButton -->
@@ -87,18 +120,9 @@
                         <li>
                             <asp:LinkButton ID="lnkAbout" runat="server" Text="About" PostBackUrl="~/About.aspx"></asp:LinkButton>
                         </li>
-                        <!-- Products Dropdown -->
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="Products.aspx">All Products</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="Cars.aspx">Cars</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="Bikes.aspx">Bikes</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="Scooty.aspx">Scooty</a></li>
-                            </ul>
+                        <!-- Products LinkButton -->
+                        <li>
+                            <asp:LinkButton ID="lnkProducts" runat="server" Text="Products" PostBackUrl="~/Products.aspx"></asp:LinkButton>
                         </li>
                         <!-- Cart LinkButton -->
                         <li>
@@ -112,7 +136,6 @@
                 </div>
             </div>
         </nav>
-   
             <!-- Image slider section -->
           <div class="container">
             <h2>Explore Our Featured Vehicles</h2>
@@ -130,7 +153,7 @@
                         <div class="carousel-caption">
                             <h3>Stylish Cars</h3>
                             <p>Experience luxury and performance with our top-of-the-line car collection.</p>
-                            <asp:HyperLink ID="lnkViewCars" runat="server" CssClass="btn btn-lg btn-primary" NavigateUrl="Cars.aspx" Text="View Cars"></asp:HyperLink>
+                            <asp:HyperLink ID="lnkViewCars" runat="server" CssClass="btn btn-lg btn-primary" NavigateUrl="Products.aspx" Text="View Cars"></asp:HyperLink>
                         </div>
                     </div>
                     <div class="item">
@@ -138,15 +161,15 @@
                         <div class="carousel-caption">
                             <h3>Thrilling Cars</h3>
                             <p>Discover adventure with our powerful and dynamic car selection.</p>
-                            <asp:HyperLink ID="lnkViewBikes" runat="server" CssClass="btn btn-lg btn-primary" NavigateUrl="Bikes.aspx" Text="View Bikes"></asp:HyperLink>
+                            <asp:HyperLink ID="lnkViewBikes" runat="server" CssClass="btn btn-lg btn-primary" NavigateUrl="Products.aspx" Text="View Vehicle"></asp:HyperLink>
                         </div>
                     </div>
                     <div class="item">
                         <asp:Image ID="imgScooter1" runat="server" ImageUrl="ImgSlider/car3.jpg" AlternateText="Scooter 1" CssClass="img-responsive" />
                         <div class="carousel-caption">
-                            <h3>Convenient Scooters</h3>
+                            <h3>Super cars</h3>
                             <p>Experience urban mobility with our range of comfortable and efficient scooters.</p>
-                            <asp:HyperLink ID="lnkViewScooters" runat="server" CssClass="btn btn-lg btn-primary" NavigateUrl="Scooters.aspx" Text="View Scooters"></asp:HyperLink>
+                            <asp:HyperLink ID="lnkViewScooters" runat="server" CssClass="btn btn-lg btn-primary" NavigateUrl="Products.aspx" Text="Premium car"></asp:HyperLink>
                         </div>
                     </div>
                 </div>
@@ -165,14 +188,14 @@
             <div class="row">
                 <div class="col-lg-4">
                     <!-- Content for Cars -->
-                    <asp:Image ID="imgCars" runat="server" ImageUrl="Images/scooty1.jpg" AlternateText="Cars" CssClass="img-circle" Width="140" Height="140" />
+                    <asp:Image ID="imgCars" runat="server" ImageUrl="Images/car1.jpg" AlternateText="Cars" CssClass="img-circle" Width="140" Height="140" />
                     <h2>Cars</h2>
                     <p>Explore a wide range of stylish and powerful cars at YJ Auto Hub. Our collection includes the latest models from top brands with advanced features and unmatched performance.</p>
                     <p><a class="btn btn-default" href="#" role="button">View More &raquo;</a></p>
                 </div>
                 <div class="col-lg-4">
                     <!-- Content for Bikes -->
-                    <asp:Image ID="imgBikes" runat="server" ImageUrl="Images/scooty1.jpg" AlternateText="Bikes" CssClass="img-circle" Width="140" Height="140" />
+                    <asp:Image ID="imgBikes" runat="server" ImageUrl="Images/bike4.jpg" AlternateText="Bikes" CssClass="img-circle" Width="140" Height="140" />
                     <h2>Bikes</h2>
                     <p>Discover thrilling biking experiences with our selection of high-performance bikes. From sporty models to cruisers, YJ Auto Hub has the perfect ride for every adventure.</p>
                     <p><a class="btn btn-default" href="#" role="button">View More &raquo;</a></p>
@@ -180,7 +203,7 @@
                 <div class="col-lg-4">
                     <!-- Content for Scooters -->
                     <asp:Image ID="imgScooters" runat="server" ImageUrl="Images/scooty1.jpg" AlternateText="Scooters" CssClass="img-circle" Width="140" Height="140" />
-                    <h2>Scooters</h2>
+                    <h2>Scooty</h2>
                     <p>Experience convenience and style with our collection of efficient and comfortable scooters. YJ Auto Hub offers a range of options for urban commuting and leisure rides.</p>
                     <p><a class="btn btn-default" href="#" role="button">View More &raquo;</a></p>
                 </div>
@@ -188,41 +211,84 @@
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    SPECIAL FRIDAY DEAL
+                    SPECIAL DIWALI SELL
                 </div>
+
                 <div class="panel-body">
                     <div class="row" style="padding-top: 50px">
-                        <asp:Repeater ID="rptrProducts" runat="server">
-                            <ItemTemplate>
-                                <div class="col-sm-3 col-md-3">
-                                    <a href='<%# "ProductView.aspx?PID=" + Eval("PID") %>' style="text-decoration: none;">
-                                        <div class="thumbnail">
-                                            <asp:Image ID="imgProduct" runat="server" ImageUrl='<%# "Images/ProductImages/" + Eval("PID") + "/" + Eval("ImageName") + Eval("Extention") %>'
-                                                AlternateText='<%# Eval("ImageName") %>' />
-                                            <div class="caption">
-                                                <div class="probrand">
-                                                    <%# Eval("BrandName") %>
-                                                </div>
-                                                <div class="proName">
-                                                    <%# Eval("PName") %>
-                                                </div>
-                                                <div class="proPrice">
-                                                    <span class="proOgPrice">
-                                                        <%# Eval("PPrice", "{0:0,00}") %>
-                                                    </span>
-                                                    <%# Eval("PSelPrice", "{0:c}") %>
-                                                    <span class="proPriceDiscount">(<%# Eval("DiscAmount", "{0:0,00}") %>off)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
+
+                <div class="row">
+                    <div class="col-sm-3 col-md-3">
+                        <a href='Products.aspx' style="text-decoration: none;">
+                            <div class="custom-box product-item">
+                                <img src="Images/bike2.jpg" alt="Product 2" />
+                                <div class="caption">
+                                    <div class="probrand">
+                                        Hero 
+                                    </div>
+                                    <div class="proName">
+                                       Spelndor Super
+                                    </div>
+                                    <div class="proPrice">
+                                        <span class="proOgPrice"> ₹100000.00
+                                        </span>
+                                         ₹80000.00
+                                        <span class="proPriceDiscount">(20%.00 off)</span>
+                                    </div>
                                 </div>
-                            </ItemTemplate>
-                        </asp:Repeater>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-sm-3 col-md-3">
+                        <a href='Products.aspx' style="text-decoration: none;">
+                            <div class="custom-box product-item">
+                                <img src="Images/car2.jpg" alt="Product 2" />
+                                <div class="caption">
+                                    <div class="probrand">
+                                        Mahindra 
+                                    </div>
+                                    <div class="proName">
+                                        Thar
+                                    </div>
+                                    <div class="proPrice">
+                                        <span class="proOgPrice"> ₹1500000.00
+                                        </span>
+                                         ₹12,00,000.00
+                                        <span class="proPriceDiscount">(20%.00 off)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-sm-3 col-md-3">
+                        <a href='Products.aspx' style="text-decoration: none;">
+                            <div class="custom-box product-item">
+                                <img src="Images/car3.jpg" alt="Product 2" />
+                                <div class="caption">
+                                    <div class="probrand">
+                                        Tata
+                                    </div>
+                                    <div class="proName">
+                                        Tata safari
+                                    </div>
+                                    <div class="proPrice">
+                                        <span class="proOgPrice"> ₹2000000.00
+                                        </span>
+                                         ₹18,00,000.00
+                                        <span class="proPriceDiscount">(10%.00 off)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
                     </div>
                 </div>
                 <div class="panel-footer">
-                    Buy 50 vehicles and get a special offer
+                    Buy 2 vehicles and get a special offer
                  </div>
             </div>
         </div>

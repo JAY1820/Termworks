@@ -42,6 +42,15 @@ namespace YJ_AUTOHUB
         protected global::System.Web.UI.WebControls.LinkButton lnkAbout;
 
         /// <summary>
+        /// lnkProducts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkProducts;
+
+        /// <summary>
         /// lnkCart control.
         /// </summary>
         /// <remarks>

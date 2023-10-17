@@ -6,71 +6,68 @@ namespace YJ_AUTOHUB
 {
     public partial class Signin : Page
     {
+        SqlConnection con;
+        readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iamja\OneDrive\Documents\Autohub.mdf;Integrated Security=True;Connect Timeout=30";
         protected void Page_Load(object sender, EventArgs e)
         {
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=YjAutohub;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;";
+            string userEmail = txtLoginEmail.Text.Trim();
 
-            // Define the SELECT query to retrieve user data based on the entered email
-            string query = "SELECT Email, Password FROM Users WHERE Email = @Email";
+            // Define the SELECT query with a parameter
+            string query = "SELECT Password FROM [User] WHERE Email = @userEmail";
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (con = new SqlConnection(connectionString))
                 {
-                    // Open the database connection
-                    connection.Open();
+                    con.Open();
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlCommand command = new SqlCommand(query, con))
                     {
-                        object txtEmail = null;
-                        string userEmail = txtEmail.Text.Trim();
+                        command.Parameters.AddWithValue("@userEmail", userEmail);
 
-                        command.Parameters.AddWithValue("@Email", userEmail);
-
-                        // Execute the query and retrieve the user's data
-                        SqlDataReader reader = command.ExecuteReader();
-
-                        while (reader.Read())
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            string storedPasswordHash = reader["Password"].ToString();
-
-                            bool passwordMatch = VerifyPassword(txtPassword.Text, storedPasswordHash);
-
-                            if (passwordMatch)
+                            if (reader.Read())
                             {
-                                // Passwords match; allow access
-                                // Redirect the user to the dashboard or another page
-                                Response.Redirect("~/Default.aspx");
+                                string storedPasswordHash = reader["Password"].ToString();
+                                string enteredPassword = txtLoginPassword.Text.Trim();
+
+                                // Use a secure password comparison method (e.g., hashing)
+                                // if (SecurePasswordCompare(enteredPassword, storedPasswordHash))
+                                if (enteredPassword == storedPasswordHash) // Temporary comparison method. Replace with SecurePasswordCompare when ready.
+                                {
+                                    // Set the session variable to indicate that the user is logged in
+                                    Session["User"] = userEmail;
+
+                                    Response.Write("<script>alert('Login success')</script>");
+                                    Response.Redirect("~/Default.aspx");
+                                }
+                                else
+                                {
+                                    Response.Write("<script>alert('Invalid credentials')</script>");
+                                }
                             }
                             else
                             {
-                                object lblError = null;
-                                // Passwords do not match; display an error message
-                                lblError.Text = "Invalid email or password. Please try again.";
+                                Response.Write("<script>alert('User not found')</script>");
                             }
                         }
-
-                        reader.Close();
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Handle any exceptions (e.g., display an error message or log the error).
-                lblError.Text = "An error occurred: " + ex.Message;
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
             }
         }
 
-        // You should implement a secure password verification function here
-        private bool VerifyPassword(string enteredPassword, string storedPasswordHash)
+        protected void btnRegister_Click(object sender, EventArgs e)
         {
-           
-
-            return false; 
+            Response.Redirect("~/Register.aspx");
         }
     }
 }
