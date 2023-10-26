@@ -11,7 +11,6 @@ namespace YJ_AUTOHUB
         protected void Page_Load(object sender, EventArgs e)
         {
         }
-
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             string userEmail = txtLoginEmail.Text.Trim();
@@ -64,8 +63,7 @@ namespace YJ_AUTOHUB
                 Response.Write("<script>alert('" + ex.Message + "')</script>");
             }
         }
-
-        protected void btnRegister_Click(object sender, EventArgs e)
+            protected void btnRegister_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Register.aspx");
         }

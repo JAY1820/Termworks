@@ -1,0 +1,133 @@
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Apply a default font style and background color */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f6f6f6;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6; /* Improved readability */
+  }
+  
+  /* Add specific styles for the header */
+  header {
+    background: linear-gradient(to right, #000000, #434343);
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  header .container {
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  header p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  header a.btn {
+    display: inline-block;
+    background-color: #f4511e;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.3s; /* Added transform transition */
+  }
+  
+  header a.btn:hover {
+    background-color: #e6470f;
+    transform: scale(1.1); /* Added scale effect on hover */
+  }
+  
+  /* Add specific styles for the footer */
+  footer {
+    background: #333;
+    color: white;
+    padding: 30px 0;
+  }
+  
+  footer .container {
+    text-align: center;
+  }
+  
+  footer h4 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  footer p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  footer ul {
+    list-style: none;
+    padding-left: 0; /* Removed default padding */
+  }
+  
+  footer ul li {
+    margin-bottom: 10px;
+  }
+  
+  footer ul li a {
+    color: #f4511e;
+    text-decoration: none;
+  }
+  
+  footer .fa {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  /* Customize styles for your content sections (services, about, contact, etc.) as needed */
+  
+  /* Example content section */
+  .services {
+    background-color: #f6f6f6;
+    padding-top: calc(50px + 2vw); /* Responsive padding */
+  }
+  
+  /* Add more styles for other sections as required */
+  
+  /* Bootstrap Carousel Styling */
+  .carousel {
+    margin-top: 30px;
+  }
+  
+  .carousel-inner {
+    border-radius: 10px;
+  }
+  
+  .carousel img {
+    border-radius: 10px;
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+  
+    header p {
+        font-size: 1rem;
+    }
+  }
+  
+  
+  
+  
+  
+  

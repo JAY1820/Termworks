@@ -2,7 +2,7 @@ from utils import load_and_preprocess_data
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 
-labeled_data_dir = "D:\\Termworks\\Sem3 Termwork\\Python\\py\\data\\dataset\\labeled"
+labeled_data_dir = "D:\\Termworks\\Sem3 Termwork\\Python\\1)waste_classifier\\data\\dataset\\labeled"
 
 images, labels = load_and_preprocess_data(labeled_data_dir)
 
@@ -35,4 +35,4 @@ model.fit(train_images, train_labels,
           validation_data=(val_images, val_labels),
           epochs=30)  
 
-model.save('models/waste_classifier_model.keras')
+model.save('models/waste_classifier_model.h5')
