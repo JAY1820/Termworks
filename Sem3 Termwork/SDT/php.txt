@@ -1,0 +1,42 @@
+1)django-admin stratproject p1 and cd p1
+2)python manage.py startapp app1
+3)model if bolo to 
+- from djnago.db import models
+- class student(models.Model)
+	id=models.IntegerFieLd,
+	name=models.CharFiled(MAX_LENGTH=20)
+-python manage.py makemigrations
+-python manage.py migrate 
+
+4) view
+-from app1.models import student
+def insertdata(Request):
+    app=Student(name="Rahul",roll=101,city="Delhi",marks=90)
+    app.save()
+    s1=Student.objects.all()
+    return render(Request,"template1.html",context={"student":s1})
+
+5) url
+
+from app1 import views
+
+urlpattern[
+	path("home/",views.insertdata)
+]
+
+6)template.html
+
+{% for i in student %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.name }}</td>
+            </tr>
+
+7)setting.py
+TEMPLATES = [
+os.path.join(BASE_DIR,Templates)
+]
+
+
+
+

@@ -22,7 +22,8 @@ class ServiceController extends Controller
 
         Service::create($data); // Store the data in the "service" table
 
-        return redirect()->route('addtocart'); // Redirect to the form page
+        return redirect()->route('addtocart')->with('success', 'Service added successfully.');
+         // Redirect to the form page
     }
 
     // You can add more methods for other controller actions as needed

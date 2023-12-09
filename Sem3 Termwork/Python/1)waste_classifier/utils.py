@@ -11,7 +11,7 @@ def load_and_preprocess_data(data_dir, img_size=(224, 224)):
         img_path = os.path.join(data_dir, img_file)
         img = Image.open(img_path)
         img = img.resize(img_size)
-        img = np.array(img) / 255.0  # Normalize pixel values
+        img = np.array(img) / 255.0  
         images.append(img)
 
     return np.array(images), None
