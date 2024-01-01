@@ -2,7 +2,7 @@
 
 Welcome to the repository for MCA Termworks at Dharmsinh Desai University. This repository contains the project work and assignments for the Master of Computer Applications (MCA) program.
 
-## Table of Contents
+## Table of Content
 
 1. [About](#about)
 2. [Repository Structure](#repository-structure)
